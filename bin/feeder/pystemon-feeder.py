@@ -61,7 +61,11 @@ while True:
     if paste is None:
         continue
     try:
-        print(paste)
+        #added time to feed
+        t = time.time()
+        current_time = time.strftime("%H:%M:%S", time.localtime(t))
+        
+        print(current_time, " ", paste)
         with open(pystemonpath+paste, 'rb') as f: #.read()
             messagedata = f.read()
         path_to_send = os.path.join(pastes_directory,paste)
